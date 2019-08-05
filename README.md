@@ -1,6 +1,6 @@
 # FluidBottomNavigation for React Native
 
-[![NpmVersion](https://img.shields.io/npm/v/react-native-fluidbottomnavigation?style=flat-square)](https://www.npmjs.com/package/react-native-fluidbottomnavigation)
+[![NpmVersion](https://img.shields.io/npm/v/react-native-fluidbottomnavigation.svg?style=flat-square)](https://www.npmjs.com/package/react-native-fluidbottomnavigation)
 [![NpmLicense](https://img.shields.io/npm/l/react-native-fluidbottomnavigation?style=flat-square)](https://www.npmjs.com/package/react-native-fluidbottomnavigation)
 
 This is a cloned version of [fluidbottomnavigation-rn](https://www.npmjs.com/package/fluidbottomnavigation-rn "fluidbottomnavigation-rn"). This package have some additional parameters. 
