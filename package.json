@@ -1,14 +1,14 @@
 {
-  "name": "fluidbottomnavigation-rn",
-  "version": "0.1.1",
-  "description": "Animated Tab Bar Component for React Native",
+  "name": "react-native-fluidbottomnavigation",
+  "version": "1.0.0",
+  "description": "This is a cloned version of [fluidbottomnavigation-rn](https://www.npmjs.com/package/fluidbottomnavigation-rn 'fluidbottomnavigation-rn'). This package have some additional parameters.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/10clouds/FluidBottomNavigation-rn.git"
+    "url": "git+https://github.com/injas427/react-native-fluidbottomnavigation.git"
   },
   "keywords": [
     "react-native",
@@ -19,18 +19,18 @@
     "ios",
     "android"
   ],
-  "author": "Patryk Mierzejewski",
+  "author": "Injas M T P",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/10clouds/FluidBottomNavigation-rn/issues"
+    "url": "https://github.com/injas427/react-native-fluidbottomnavigation/issues"
   },
-  "homepage": "https://github.com/10clouds/FluidBottomNavigation-rn#readme",
+  "homepage": "https://github.com/injas427/react-native-fluidbottomnavigation#readme",
   "dependencies": {
     "react-native-view-overflow": "^0.0.3"
   },
   "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-native": ">=0.55.0",
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
@@ -42,8 +42,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "jest": "23.4.2",
-    "react": ">=16.0.0",
-    "react-native": ">=0.55.0",
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
     "react-test-renderer": "16.4.1"
   },
   "jest": {

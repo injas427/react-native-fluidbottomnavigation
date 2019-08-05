@@ -1,9 +1,9 @@
 # FluidBottomNavigation for React Native
 
-[![NpmVersion](https://img.shields.io/npm/v/fluidbottomnavigation-rn.svg?style=flat-square)](https://www.npmjs.com/package/fluidbottomnavigation-rn)
-[![NpmLicense](https://img.shields.io/npm/l/fluidbottomnavigation-rn.svg?style=flat-square)](https://www.npmjs.com/package/fluidbottomnavigation-rn)
+[![NpmVersion](https://img.shields.io/npm/v/react-native-fluidbottomnavigation?style=flat-square)](https://www.npmjs.com/package/react-native-fluidbottomnavigation)
+[![NpmLicense](https://img.shields.io/npm/l/react-native-fluidbottomnavigation?style=flat-square)](https://www.npmjs.com/package/react-native-fluidbottomnavigation)
 
-The Animated Tab Bar for React Native
+This is a cloned version of [fluidbottomnavigation-rn](https://www.npmjs.com/package/fluidbottomnavigation-rn "fluidbottomnavigation-rn"). This package have some additional parameters. 
 
 ![Sample](https://raw.githubusercontent.com/10clouds/FluidBottomNavigation-rn/master/static/sample.gif)
 
@@ -16,20 +16,19 @@ To run the example project, clone the repo, and run `npm install` from the Examp
 It is available through [npm](https://npmjs.com). To install just run
 
 ```
-npm i fluidbottomnavigation-rn
+npm i -s react-native-fluidbottomnavigation
 ```
 
 in your project directory. And then link it's native dependency with
 
 ```
-react-native link react-native-view-overflow
+npm i -s react-native-view-overflow
 ```
 
 and you're done!
 
 ## Usage
 
-This component requires just 2 props. `onPress` function, that should handle rendering tabs and an array of `values` objects that contains title and icons for given tabs.
 
 ```JSX
 <TabBar
@@ -53,17 +52,17 @@ This component requires just 2 props. `onPress` function, that should handle ren
 
 Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
-1. iconStyle => Now you can style your icon used in navigator without editing core module
+1. `iconStyle` => Now you can style your icon used in navigator without editing core module
 
-2. isRtl => New feature for apps that requires rtl.
+2. `isRtl` => New feature for apps that requires rtl.
 
-3.  tintColor => tintColor in values let's you add specific color for each icon
+3.  `tintColor` => tintColor in values let's you add specific color for each icon
 
-4. default => Now you can setdefault tab by passing additional parameter in values object
+4. `default` => Now you can setdefault tab by passing additional parameter in values object
 
-5. containerBackgroundColor => Now you can change default container background color by passing color value to `containerBackgroundColor` prop
+5. `containerBackgroundColor` => Now you can change default container background color by passing color value to `containerBackgroundColor` prop
 
-6. itemMaskBackgroundColor => Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop
+6. `itemMaskBackgroundColor` => Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop
 
 ### Extra paramters added
 | Property      | Type          | Default       | Description   | Required      |
@@ -77,8 +76,8 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
 ## Author
 
-[Patryk Mierzejewski](https://github.com/pmierzejewski)
+[Injas M T P](https://github.com/injas427)
 
 ## License
 
-FluidBottomNavigation Component is available under the MIT license. See the LICENSE file for more info.
+`react-native-fluidbottomnavigation` Component is available under the MIT license. See the LICENSE file for more info.
