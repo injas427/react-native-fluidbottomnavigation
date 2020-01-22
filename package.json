@@ -1,41 +1,38 @@
 {
-  "_from": "react-native-fluidbottomnavigation",
-  "_id": "react-native-fluidbottomnavigation@1.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-zbIlLBAyjQgvZjNaBu4NMddCatjYtzceCx0cyW15ves6WS1fBRx/WRx2jJYx2RXjMwD3Jy2Z9xlUzF82lKbmpA==",
-  "_location": "/react-native-fluidbottomnavigation",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "react-native-fluidbottomnavigation",
-    "name": "react-native-fluidbottomnavigation",
-    "escapedName": "react-native-fluidbottomnavigation",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+  "name": "react-native-fluidbottomnavigation",
+  "version": "1.0.0",
+  "description": "This is a cloned version of [fluidbottomnavigation-rn](https://www.npmjs.com/package/fluidbottomnavigation-rn 'fluidbottomnavigation-rn'). This package have some additional parameters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
   },
-  "_requiredBy": [
-    "#USER",
-    "/"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/injas427/react-native-fluidbottomnavigation.git"
+  },
+  "keywords": [
+    "react-native",
+    "tabbar",
+    "animated",
+    "navigation",
+    "react-component",
+    "ios",
+    "android"
   ],
-  "_resolved": "https://registry.npmjs.org/react-native-fluidbottomnavigation/-/react-native-fluidbottomnavigation-1.0.0.tgz",
-  "_shasum": "0a6a8b13c7e326a28a71ffb0f61ec9f43e53d1a5",
-  "_spec": "react-native-fluidbottomnavigation",
-  "_where": "/Volumes/Projects/FavMarketing",
-  "author": {
-    "name": "Injas M T P"
-  },
+  "author": "Injas M T P",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/injas427/react-native-fluidbottomnavigation/issues"
   },
-  "bundleDependencies": false,
+  "homepage": "https://github.com/injas427/react-native-fluidbottomnavigation#readme",
   "dependencies": {
-    "react-native-view-overflow": "^0.0.3",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-view-overflow": "^0.0.3"
   },
-  "deprecated": false,
-  "description": "This is a cloned version of [fluidbottomnavigation-rn](https://www.npmjs.com/package/fluidbottomnavigation-rn 'fluidbottomnavigation-rn'). This package have some additional parameters.",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
+    "prop-types": "^15.6.2"
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "babel-jest": "23.4.2",
@@ -49,33 +46,7 @@
     "react-native": ">=0.60.0",
     "react-test-renderer": "16.4.1"
   },
-  "homepage": "https://github.com/injas427/react-native-fluidbottomnavigation#readme",
   "jest": {
     "preset": "react-native"
-  },
-  "keywords": [
-    "react-native",
-    "tabbar",
-    "animated",
-    "navigation",
-    "react-component",
-    "ios",
-    "android"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "name": "react-native-fluidbottomnavigation",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-native": ">=0.60.0",
-    "prop-types": "^15.6.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/injas427/react-native-fluidbottomnavigation.git"
-  },
-  "scripts": {
-    "test": "jest"
-  },
-  "version": "1.1.0"
+  }
 }

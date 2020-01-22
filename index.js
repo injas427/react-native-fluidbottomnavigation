@@ -11,48 +11,14 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import ViewOverflow from "react-native-view-overflow";
-import AntDesign from "react-native-vector-icons/AntDesign"
-import Entypo from "react-native-vector-icons/Entypo"
-import EvilIcons from "react-native-vector-icons/EvilIcons"
-import Feather from "react-native-vector-icons/Feather"
-import FontAwesome from "react-native-vector-icons/FontAwesome"
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
-import Fontisto from "react-native-vector-icons/Fontisto"
-import Foundation from "react-native-vector-icons/Foundation"
-import Ionicons from "react-native-vector-icons/Ionicons"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import Octicons from "react-native-vector-icons/Octicons"
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
-import Zocial from "react-native-vector-icons/Zocial"
-import { Icon } from "native-base";
 
 const AnimatedViewOverflow = Animated.createAnimatedComponent(ViewOverflow);
-
-export const iconTypes = {
-	AntDesign,
-	Entypo,
-	EvilIcons,
-	Feather,
-	FontAwesome,
-	FontAwesome5,
-	Fontisto,
-	Foundation,
-	Ionicons,
-	MaterialIcons,
-	MaterialCommunityIcons,
-	Octicons,
-	SimpleLineIcons,
-	Zocial
-}
 
 interface valuesProp {
 	title: String,
 	icon: ImagePropertiesSourceOptions,
 	tintColor: String,
-	default: Boolean,
-	isIcon: Boolean,
-	iconType: String
+	default: Boolean
 }
 
 interface TabBarProps {
@@ -60,8 +26,7 @@ interface TabBarProps {
 	values: Array<valuesProp>,
 	isRtl: Boolean,
 	containerBackgroundColor: String,
-	itemMaskBackgroundColor: String,
-	iconSize: Number
+	itemMaskBackgroundColor: String
 }
 
 class TabBar extends Component<TabBarProps> {
@@ -91,57 +56,7 @@ class TabBar extends Component<TabBarProps> {
 		isRtl: false,
 		containerBackgroundColor: "white",
 		itemMaskBackgroundColor: "white",
-		iconSize: 25,
 	};
-
-	renderIcon(type, icon, tintColor) {
-		switch (type) {
-			case iconTypes.AntDesign:
-				return <AntDesign name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Entypo:
-				return <Entypo name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.EvilIcons:
-				return <EvilIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Feather:
-				return <Feather name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.FontAwesome:
-				return <FontAwesome name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.FontAwesome5:
-				return <FontAwesome5 name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Fontisto:
-				return <Fontisto name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Foundation:
-				return <Foundation name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Ionicons:
-				return <Ionicons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.MaterialCommunityIcons:
-				return <MaterialCommunityIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.MaterialIcons:
-				return <MaterialIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Octicons:
-				return <Octicons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.SimpleLineIcons:
-				return <SimpleLineIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			case iconTypes.Zocial:
-				return <Zocial name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
-			default:
-				return <AntDesign name="question" style={{ color: tintColor, fontSize: this.props.iconSize }} />
-		}
-	}
 
 	_renderButtons = () => {
 		const { iconStyle, values } = this.props
@@ -221,7 +136,7 @@ class TabBar extends Component<TabBarProps> {
 				>
 					<AnimatedViewOverflow style={[styles.item, animatedItemStyle]}>
 						<Image
-							style={[styles.itemMask, { tintColor: this.props.itemMaskBackgroundColor }]}
+							style={[styles.itemMask, { tintColor: this.props.itemMaskBackgroundColor}]}
 							source={require("./assets/mask.png")}
 						/>
 						<Animated.View
@@ -239,10 +154,7 @@ class TabBar extends Component<TabBarProps> {
 							]}
 						/>
 						{/* <Animated.Text>ooooo {JSON.stringify(item.default)}</Animated.Text> */}
-						{!item.isIcon ? <Animated.Image source={item.icon} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" /> :
-							this.renderIcon(item.iconType, item.icon, item.tintColor,)
-						}
-						{/* <Icon type={item.iconType.} name="ios-home" style={{color: item.tintColor}} /> */}
+						<Animated.Image source={item.icon} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" />
 						<Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
 							<Animated.Text
 								numberOfLines={1}
