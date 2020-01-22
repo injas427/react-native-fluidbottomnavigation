@@ -31,6 +31,9 @@ and you're done!
 
 
 ```JSX
+
+import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
+
 <TabBar
     iconStyle={{ width: 50, height: 50 }}
     tintColor="blue"
@@ -38,8 +41,9 @@ and you're done!
         console.warn(tabIndex);
     }}
     isRtl={ true }
+    iconSize={25}
     values={[
-        { title: "Home", icon: require("./home.png"), tintColor: curTab == 0 ? "red" : "blue", default: true },
+        { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", default: true, isIcon: true, iconType: iconTypes.MaterialIcons },
         { title: "Home1", icon: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
         { title: "Home2", icon: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
         { title: "Home3", icon: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
@@ -64,6 +68,12 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
 6. `itemMaskBackgroundColor` => Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop
 
+7. `iconSize` => Now you can set icon size by passing integer value to `iconSize` prop
+
+8. `isIcon` => Now you can choose either image or icon as tabbar icon by passing `isIcon` to each item prop
+
+9. `iconType` => All icons from `react-native-vector-icons` are supported. Can import `iconTypes` to get all the supported types
+
 ### Extra paramters added
 | Property      | Type          | Default       | Description   | Required      |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -73,6 +83,10 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | default  | Boolean  | false  | Now default tab can be set by passing default prop along with title and icon. This can be used to focus aspecific tab before any user interaction  | true  |
 | containerBackgroundColor  | String  | white  | Now you can change default container background color by passing color value to `containerBackgroundColor` prop. It accespts string and hex values  | false  |
 | itemMaskBackgroundColor  | String  | white  | Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop. It accespts string and hex values  | false  |
+| iconSize  | Number  | 25  | Now you can set icon size by passing integer value to `iconSize` prop  | false  |
+| isIcon  | Boolean  | false  | Now you can choose either image or icon as tabbar icon by passing `isIcon` to each item prop  | false  |
+| iconType  | String  | false  | All icons from `react-native-vector-icons` are supported. Can import `iconTypes` to get all the supported types  | false  |
+| icon  | Image or String  | false  | Valid image path or icon name if `isIcon` is set to true  | false  |
 
 ## Author
 
