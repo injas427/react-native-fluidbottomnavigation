@@ -44,10 +44,10 @@ import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
     iconSize={25}
     values={[
         { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", default: true, isIcon: true, iconType: iconTypes.MaterialIcons },
-        { title: "Home1", icon: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
-        { title: "Home2", icon: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
-        { title: "Home3", icon: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
-        { title: "Home4", icon: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
+        { title: "Home1", image: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
+        { title: "Home2", image: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
+        { title: "Home3", image: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
+        { title: "Home4", image: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
     ]}
 />
 ```
@@ -86,8 +86,10 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | iconSize  | Number  | 25  | Now you can set icon size by passing integer value to `iconSize` prop  | false  |
 | isIcon  | Boolean  | false  | Now you can choose either image or icon as tabbar icon by passing `isIcon` to each item prop  | false  |
 | iconType  | String  | false  | All icons from `react-native-vector-icons` are supported. Can import `iconTypes` to get all the supported types  | false  |
-| icon  | Image or String  | false  | Valid image path or icon name if `isIcon` is set to true  | false  |
+| icon  | String  | false  | Valid icon name if `isIcon` is set to true  | false  |
+| image  | Image  | false  | Valid image path  | false  |
 
+> Note: Either image or icon is accepted. By default, library checks for image. If you want to show **react native icon** as tabbar icon, you must set **isIcon** to **true** and set value to **icon** prop
 ## Author
 
 [Injas M T P](https://github.com/injas427)

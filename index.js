@@ -48,7 +48,8 @@ export const iconTypes = {
 
 interface valuesProp {
 	title: String,
-	icon: ImagePropertiesSourceOptions,
+	image: ImagePropertiesSourceOptions,
+	icon: String,
 	tintColor: String,
 	default: Boolean,
 	isIcon: Boolean,
@@ -239,7 +240,7 @@ class TabBar extends Component<TabBarProps> {
 							]}
 						/>
 						{/* <Animated.Text>ooooo {JSON.stringify(item.default)}</Animated.Text> */}
-						{!item.isIcon ? <Animated.Image source={item.icon} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" /> :
+						{!item.isIcon ? <Animated.Image source={item.image} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" /> :
 							this.renderIcon(item.iconType, item.icon, item.tintColor,)
 						}
 						{/* <Icon type={item.iconType.} name="ios-home" style={{color: item.tintColor}} /> */}
@@ -330,7 +331,8 @@ TabBar.propTypes = {
 	values: PropTypes.arrayOf(
 		PropTypes.shape({
 			title: PropTypes.string.isRequired,
-			icon: PropTypes.number.isRequired,
+			icon: PropTypes.string,
+			image: PropTypes.number,
 			tintColor: PropTypes.string.isRequired,
 			default: PropTypes.bool
 		})
