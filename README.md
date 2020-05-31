@@ -40,14 +40,17 @@ import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
     onPress={(tabIndex) => {
         console.warn(tabIndex);
     }}
+    iconActiveTintColor="black"
+    iconInactiveTintColor="blue"
+    titleFontFamily="Europa-Regular"
     isRtl={ true }
     iconSize={25}
     values={[
         { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", default: true, isIcon: true, iconType: iconTypes.MaterialIcons },
-        { title: "Home1", icon: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
-        { title: "Home2", icon: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
-        { title: "Home3", icon: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
-        { title: "Home4", icon: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
+        { title: "Home1", image: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
+        { title: "Home2", image: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
+        { title: "Home3", image: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
+        { title: "Home4", image: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
     ]}
 />
 ```
@@ -74,12 +77,18 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
 9. `iconType` => All icons from `react-native-vector-icons` are supported. Can import `iconTypes` to get all the supported types
 
+10. `iconActiveTintColor` => Now you can change active icon tint color by passing `iconActiveTintColor` value
+
+11. `iconInactiveTintColor` => Now you can change inactive icon tint color by passing `iconInactiveTintColor` value
+
+12. `titleFontFamily` => Now you can change fontFamily of the title by passing font family to `titleFontFamilychange` 
+
 ### Extra paramters added
 | Property      | Type          | Default       | Description   | Required      |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | iconStyle  | ImageStyle  | { width: 20, height: 20 }  | iconStyle prop allows you to customize the icon used in bottom tab bar  | false  |
 | isRtl  | Boolean  | false  | If you have rtl in your app, set valueto true and the bottom tab bar will show in reverse order  | false  |
-| tintColor  | String  | Black  | You can assign custom color for each icon by passing tintColor prop along with title and icon. This can be used to assign unique color for active tab  | true  |
+| tintColor  | String  | Black  | You can assign custom color for each icon by passing tintColor prop along with title and icon. This can be used to assign unique color for active tab  | false  |
 | default  | Boolean  | false  | Now default tab can be set by passing default prop along with title and icon. This can be used to focus aspecific tab before any user interaction  | true  |
 | containerBackgroundColor  | String  | white  | Now you can change default container background color by passing color value to `containerBackgroundColor` prop. It accespts string and hex values  | false  |
 | itemMaskBackgroundColor  | String  | white  | Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop. It accespts string and hex values  | false  |
@@ -87,7 +96,11 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | isIcon  | Boolean  | false  | Now you can choose either image or icon as tabbar icon by passing `isIcon` to each item prop  | false  |
 | iconType  | String  | false  | All icons from `react-native-vector-icons` are supported. Can import `iconTypes` to get all the supported types  | false  |
 | icon  | Image or String  | false  | Valid image path or icon name if `isIcon` is set to true  | false  |
+| iconActiveTintColor  | String  | black  | Valid color  | false  |
+| iconinactiveTintColor  | String  | black  | Valid color  | false  |
+| titleFontFamily  | String  | undefined  | Valid font family name  | false  |
 
+> Note: Either image or icon is accepted. By default, library checks for image. If you want to show **react native icon** as tabbar icon, you must set **isIcon** to **true** and set value to **icon** prop
 ## Author
 
 [Injas M T P](https://github.com/injas427)
