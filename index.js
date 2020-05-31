@@ -50,10 +50,10 @@ interface valuesProp {
 	title: String,
 	image: ImagePropertiesSourceOptions,
 	icon: String,
-	tintColor: String,
+	tintColor?: String,
 	default: Boolean,
 	isIcon: Boolean,
-	iconType: String
+	iconType: String,
 }
 
 interface TabBarProps {
@@ -62,7 +62,10 @@ interface TabBarProps {
 	isRtl: Boolean,
 	containerBackgroundColor: String,
 	itemMaskBackgroundColor: String,
-	iconSize: Number
+	iconSize: Number,
+	iconActiveTintColor: String,
+	iconInactiveTintColor: String,
+	titleFontFamily?: String,
 }
 
 class TabBar extends Component<TabBarProps> {
@@ -93,52 +96,55 @@ class TabBar extends Component<TabBarProps> {
 		containerBackgroundColor: "white",
 		itemMaskBackgroundColor: "white",
 		iconSize: 25,
+		iconActiveTintColor: "black",
+		iconInactiveTintColor: "black",
+		titleFontFamily: undefined,
 	};
 
 	renderIcon(type, icon, tintColor) {
 		switch (type) {
 			case iconTypes.AntDesign:
 				return <AntDesign name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Entypo:
 				return <Entypo name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.EvilIcons:
 				return <EvilIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Feather:
 				return <Feather name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.FontAwesome:
 				return <FontAwesome name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.FontAwesome5:
 				return <FontAwesome5 name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Fontisto:
 				return <Fontisto name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Foundation:
 				return <Foundation name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Ionicons:
 				return <Ionicons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.MaterialCommunityIcons:
 				return <MaterialCommunityIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.MaterialIcons:
 				return <MaterialIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Octicons:
 				return <Octicons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.SimpleLineIcons:
 				return <SimpleLineIcons name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			case iconTypes.Zocial:
 				return <Zocial name={icon} style={{ color: tintColor, fontSize: this.props.iconSize }} />
-			
+
 			default:
 				return <AntDesign name="question" style={{ color: tintColor, fontSize: this.props.iconSize }} />
 		}
@@ -241,7 +247,7 @@ class TabBar extends Component<TabBarProps> {
 						/>
 						{/* <Animated.Text>ooooo {JSON.stringify(item.default)}</Animated.Text> */}
 						{!item.isIcon ? <Animated.Image source={item.image} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" /> :
-							this.renderIcon(item.iconType, item.icon, item.tintColor,)
+							this.renderIcon(item.iconType, item.icon, item.tintColor || (index === this.state.lastSelectedIndex ? this.props.iconActiveTintColor : this.props.iconInactiveTintColor))
 						}
 						{/* <Icon type={item.iconType.} name="ios-home" style={{color: item.tintColor}} /> */}
 						<Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
@@ -249,7 +255,8 @@ class TabBar extends Component<TabBarProps> {
 								numberOfLines={1}
 								adjustsFontSizeToFit={true}
 								style={{
-									color: this.props.tintColor
+									color: this.props.tintColor,
+									fontFamily: this.props.titleFontFamily
 								}}
 							>
 								{item.title}
@@ -333,12 +340,14 @@ TabBar.propTypes = {
 			title: PropTypes.string.isRequired,
 			icon: PropTypes.string,
 			image: PropTypes.number,
-			tintColor: PropTypes.string.isRequired,
+			tintColor: PropTypes.string,
 			default: PropTypes.bool
 		})
 	),
 	tintColor: PropTypes.string,
-	isRtl: PropTypes.bool
+	isRtl: PropTypes.bool,
+	iconInactiveTintColor: PropTypes.string,
+	titleFontFamily: PropTypes.oneOfType([undefined, PropTypes.string]),
 };
 
 const styles = {
