@@ -1,3 +1,8 @@
 # node.js
 #
 node_modules/
+Example/ios/Pods
+Example/ios/Podfile.lock
+Example/package-lock.json
+Example/__tests__
+.DS_Store

@@ -47,10 +47,10 @@ import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
     iconSize={25}
     values={[
         { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", default: true, isIcon: true, iconType: iconTypes.MaterialIcons },
-        { title: "Home1", icon: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
-        { title: "Home2", icon: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
-        { title: "Home3", icon: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
-        { title: "Home4", icon: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
+        { title: "Home1", image: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
+        { title: "Home2", image: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
+        { title: "Home3", image: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
+        { title: "Home4", image: require("./home.png"), tintColor: curTab == 4 ? "red" : "blue", },
     ]}
 />
 ```
@@ -100,6 +100,7 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | iconinactiveTintColor  | String  | black  | Valid color  | false  |
 | titleFontFamily  | String  | undefined  | Valid font family name  | false  |
 
+> Note: Either image or icon is accepted. By default, library checks for image. If you want to show **react native icon** as tabbar icon, you must set **isIcon** to **true** and set value to **icon** prop
 ## Author
 
 [Injas M T P](https://github.com/injas427)
