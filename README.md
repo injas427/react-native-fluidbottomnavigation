@@ -42,6 +42,8 @@ import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
     }}
     iconActiveTintColor="black"
     iconInactiveTintColor="blue"
+    tintColor="#f5f5f7"
+    titleColor="red"
     titleFontFamily="Europa-Regular"
     isRtl={ true }
     iconSize={25}
@@ -81,7 +83,9 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
 11. `iconInactiveTintColor` => Now you can change inactive icon tint color by passing `iconInactiveTintColor` value
 
-12. `titleFontFamily` => Now you can change fontFamily of the title by passing font family to `titleFontFamilychange` 
+12. `titleFontFamily` => Now you can change fontFamily of the title by passing font family to `titleFontFamily` 
+
+13. `titleColor` => Now you can change color of the title by passing color to `titleColor` 
 
 ### Extra paramters added
 | Property      | Type          | Default       | Description   | Required      |
@@ -99,6 +103,7 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | iconActiveTintColor  | String  | black  | Valid color  | false  |
 | iconinactiveTintColor  | String  | black  | Valid color  | false  |
 | titleFontFamily  | String  | undefined  | Valid font family name  | false  |
+| titleColor  | String  | black  | Color  | false  |
 
 > Note: Either image or icon is accepted. By default, library checks for image. If you want to show **react native icon** as tabbar icon, you must set **isIcon** to **true** and set value to **icon** prop
 ## Author

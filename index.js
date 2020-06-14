@@ -7,7 +7,7 @@ import {
 	Easing,
 	Image,
 	ImageStyle,
-	ImagePropertiesSourceOptions,
+	ImagePropertiesSourceOptions
 } from "react-native";
 import PropTypes from "prop-types";
 import ViewOverflow from "react-native-view-overflow";
@@ -25,7 +25,6 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Octicons from "react-native-vector-icons/Octicons"
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
 import Zocial from "react-native-vector-icons/Zocial"
-import { Icon } from "native-base";
 
 const AnimatedViewOverflow = Animated.createAnimatedComponent(ViewOverflow);
 
@@ -66,6 +65,7 @@ interface TabBarProps {
 	iconActiveTintColor: String,
 	iconInactiveTintColor: String,
 	titleFontFamily?: String,
+	titleColor: String,
 }
 
 class TabBar extends Component<TabBarProps> {
@@ -99,6 +99,7 @@ class TabBar extends Component<TabBarProps> {
 		iconActiveTintColor: "black",
 		iconInactiveTintColor: "black",
 		titleFontFamily: undefined,
+		titleColor: "black"
 	};
 
 	renderIcon(type, icon, tintColor) {
@@ -245,17 +246,16 @@ class TabBar extends Component<TabBarProps> {
 								animatedMiniBubbleStyle
 							]}
 						/>
-						{/* <Animated.Text>ooooo {JSON.stringify(item.default)}</Animated.Text> */}
 						{!item.isIcon ? <Animated.Image source={item.image} style={[animatedImageStyle, iconStyle, { tintColor: item.tintColor }]} resizeMode="contain" /> :
 							this.renderIcon(item.iconType, item.icon, item.tintColor || (index === this.state.lastSelectedIndex ? this.props.iconActiveTintColor : this.props.iconInactiveTintColor))
 						}
-						{/* <Icon type={item.iconType.} name="ios-home" style={{color: item.tintColor}} /> */}
+
 						<Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
 							<Animated.Text
 								numberOfLines={1}
 								adjustsFontSizeToFit={true}
 								style={{
-									color: this.props.tintColor,
+									color: this.props.titleColor,
 									fontFamily: this.props.titleFontFamily
 								}}
 							>
@@ -347,7 +347,7 @@ TabBar.propTypes = {
 	tintColor: PropTypes.string,
 	isRtl: PropTypes.bool,
 	iconInactiveTintColor: PropTypes.string,
-	titleFontFamily: PropTypes.oneOfType([undefined, PropTypes.string]),
+	titleFontFamily: PropTypes.string,
 };
 
 const styles = {
