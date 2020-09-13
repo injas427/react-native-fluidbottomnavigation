@@ -35,6 +35,7 @@ and you're done!
 import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
 
 <TabBar
+	activeTab={activeTab}
     iconStyle={{ width: 50, height: 50 }}
     tintColor="blue"
     onPress={(tabIndex) => {
@@ -48,7 +49,7 @@ import TabBar, { iconTypes } from "react-native-fluidbottomnavigation";
     isRtl={ true }
     iconSize={25}
     values={[
-        { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", default: true, isIcon: true, iconType: iconTypes.MaterialIcons },
+        { title: "Home", icon: "alarm", tintColor: curTab == 0 ? "red" : "blue", isIcon: true, iconType: iconTypes.MaterialIcons },
         { title: "Home1", image: require("./home.png"), tintColor: curTab == 1 ? "red" : "blue", },
         { title: "Home2", image: require("./home.png"), tintColor: curTab == 2 ? "red" : "blue", },
         { title: "Home3", image: require("./home.png"), tintColor: curTab == 3 ? "red" : "blue", },
@@ -67,7 +68,7 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 
 3.  `tintColor` => tintColor in values let's you add specific color for each icon
 
-4. `default` => Now you can setdefault tab by passing additional parameter in values object
+4. `activeTab` => Now you can set currently focused tab with `activeTab` prop 
 
 5. `containerBackgroundColor` => Now you can change default container background color by passing color value to `containerBackgroundColor` prop
 
@@ -93,7 +94,8 @@ Optionally you can pass `tintColor` prop, to adjust styling to your app.
 | iconStyle  | ImageStyle  | { width: 20, height: 20 }  | iconStyle prop allows you to customize the icon used in bottom tab bar  | false  |
 | isRtl  | Boolean  | false  | If you have rtl in your app, set valueto true and the bottom tab bar will show in reverse order  | false  |
 | tintColor  | String  | Black  | You can assign custom color for each icon by passing tintColor prop along with title and icon. This can be used to assign unique color for active tab  | false  |
-| default  | Boolean  | false  | Now default tab can be set by passing default prop along with title and icon. This can be used to focus aspecific tab before any user interaction  | true  |
+| activeTab | Number  | true  | Now default tab by passing `activeTab` prop  | null  |
+| <span style="color:red;" >default **(replaced with activeTab)**</span> | <span style="color:red;" >Boolean</span>  | <span style="color:red;" >false</span>  | <span style="color:red;" >Now default tab can be set by passing default prop along with title and icon. This can be used to focus aspecific tab before any user interaction</span>  | <span style="color:red;" >true</span>  |
 | containerBackgroundColor  | String  | white  | Now you can change default container background color by passing color value to `containerBackgroundColor` prop. It accespts string and hex values  | false  |
 | itemMaskBackgroundColor  | String  | white  | Now you can change default mask color by passing color value to `itemMaskBackgroundColor` prop. It accespts string and hex values  | false  |
 | iconSize  | Number  | 25  | Now you can set icon size by passing integer value to `iconSize` prop  | false  |

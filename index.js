@@ -50,7 +50,6 @@ interface valuesProp {
 	image: ImagePropertiesSourceOptions,
 	icon: String,
 	tintColor?: String,
-	default: Boolean,
 	isIcon: Boolean,
 	iconType: String,
 }
@@ -66,6 +65,7 @@ interface TabBarProps {
 	iconInactiveTintColor: String,
 	titleFontFamily?: String,
 	titleColor: String,
+	activeTab: Number,
 }
 
 class TabBar extends Component<TabBarProps> {
@@ -73,7 +73,8 @@ class TabBar extends Component<TabBarProps> {
 		super(props);
 
 		this.state = {
-			lastSelectedIndex: null
+			lastSelectedIndex: null,
+			currentTab: null,
 		};
 
 		this.animatedItemValues = [];
@@ -81,11 +82,11 @@ class TabBar extends Component<TabBarProps> {
 		this.animatedMiniBubbleValues = [];
 		this.animatedImageValues = [];
 		this.props.values.forEach((item, index) => {
-			this.animatedItemValues[index] = new Animated.Value(item.default ? -30 : 0);
-			this.animatedBubbleValues[index] = new Animated.Value(item.default ? 1 : 0);
-			this.animatedImageValues[index] = new Animated.Value(item.default ? 1 : 0);
-			this.animatedMiniBubbleValues[index] = new Animated.Value(item.default ? 1 : 0);
-			item.default && (this.state = { lastSelectedIndex: index })
+			this.animatedItemValues[index] = new Animated.Value(props.activeTab === index ? -30 : 0);
+			this.animatedBubbleValues[index] = new Animated.Value(props.activeTab === index ? 1 : 0);
+			this.animatedImageValues[index] = new Animated.Value(props.activeTab === index ? 1 : 0);
+			this.animatedMiniBubbleValues[index] = new Animated.Value(props.activeTab === index ? 1 : 0);
+			props.activeTab === index && (this.state = { currentTab: index, lastSelectedIndex: index })
 		});
 	}
 
@@ -99,8 +100,33 @@ class TabBar extends Component<TabBarProps> {
 		iconActiveTintColor: "black",
 		iconInactiveTintColor: "black",
 		titleFontFamily: undefined,
-		titleColor: "black"
+		titleColor: "black",
+		activeTab: 0
 	};
+
+	static getDerivedStateFromProps(props, state) {
+		return {
+			currentTab: props.activeTab
+		}
+	}
+
+	componentDidUpdate() {
+		const { currentTab, lastSelectedIndex } = this.state
+		if (currentTab === lastSelectedIndex) {
+			return;
+		}
+
+		this.startAnimation(currentTab);
+
+		if (lastSelectedIndex !== null) {
+			this.endAnimation(lastSelectedIndex);
+		}
+
+		this.setState({
+			lastSelectedIndex: currentTab
+		});
+
+	}
 
 	renderIcon(type, icon, tintColor) {
 		switch (type) {
@@ -210,20 +236,7 @@ class TabBar extends Component<TabBarProps> {
 				<TouchableWithoutFeedback
 					key={index}
 					onPress={() => {
-						if (index === this.state.lastSelectedIndex) {
-							return;
-						}
-
-						this.startAnimation(index);
-
-						if (this.state.lastSelectedIndex !== null) {
-							this.endAnimation(this.state.lastSelectedIndex);
-						}
-
-						this.setState({
-							lastSelectedIndex: index
-						});
-
+						if (this.state.currentTab === index) return null
 						this.props.onPress(index);
 					}}
 				>
@@ -348,6 +361,7 @@ TabBar.propTypes = {
 	isRtl: PropTypes.bool,
 	iconInactiveTintColor: PropTypes.string,
 	titleFontFamily: PropTypes.string,
+	activeTab: PropTypes.number.isRequired,
 };
 
 const styles = {
